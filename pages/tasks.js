@@ -7,6 +7,13 @@ export default function tasks (){
     const [tasks, setTasks] = useState([])
     const [input, setInput] = useState("")
     const [isValid, setIsValid] = useState(true)
+    const [submitted, setSubmitted] = useState(false)
+
+
+    function handleInput(task){
+        setInput(task)
+        setSubmitted(false)
+    }
     
 
     function addTask(){
@@ -14,6 +21,7 @@ export default function tasks (){
             setIsValid(true)
             setTasks([...tasks, input])
             setInput("")
+            setSubmitted(true)
         }else{
             setIsValid(false)
         }
@@ -31,20 +39,22 @@ export default function tasks (){
             <div className="taskLayout">
                 <div className="createTask">
                     <h4>Create Task</h4>
-                    <input type="text" value={input} onChange={(e)=> setInput(e.target.value)}></input>
+                    <input type="text" value={input} onChange={(e) => handleInput(e.target.value)}></input>
                     <button onClick={addTask} >Create</button>
                     <p>{isValid ?  "" : "Invalid, feild is empty"}</p>
+                    <p>{submitted ? "Task Created!" : ""}</p>
                 </div>
 
-                <div className="current Tasks">
+                <div className="currentTasks">
                     <h3>Current Tasks</h3>
                     <div>
                         <p>{tasks.length != 0 ? "" : "No current tasks"}</p>
-                        <ul>
+                        <ul className="taskList">
                             {tasks.map((task) => 
                             <li>
                                 {task}
                                 <button className="delete" onClick={() => deleteTask(task)}>Delete</button>
+                                
                             </li>
                             
                             )}
