@@ -39,7 +39,7 @@ export default function numberDrag() {
   return (
     <div>
       <Title title="Number Drag" />
-      <p className="instructions">Drag and drop the boxeds to add the value </p>
+      <p className="instructions">Drag and drop the boxes to add the value </p>
       <div className="boxLayout">
         {/* Create the drop box and set the number inside to the current number variable */}
         {/* Ondrop function will add the numbers of the boxes */}
