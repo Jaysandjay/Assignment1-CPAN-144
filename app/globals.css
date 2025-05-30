@@ -163,3 +163,8 @@ button:hover{
   justify-content: space-between;
   height: 400px;
 }
+
+.numberInstructions{
+  text-align: center;
+  font-size: 25px;
+}

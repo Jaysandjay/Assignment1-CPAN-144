@@ -30,15 +30,21 @@ export default function numberDrag(){
         e.preventDefault()
         setCurrentNumber(currentNumber + numToAdd)
     }
+
+    function clear(){
+        setCurrentNumber(0)
+    }
     
 
     return(
         <div>
             <Title title="Number Drag"/>
+            <p className="numberInstructions">Drag and drop the boxeds to add the value </p>
             <div className="boxLayout">
                 <NumberBox 
                 number={currentNumber}
-                onDragOver={(e) => handleDragOver(e)}
+                onDragOver={handleDragOver}
+                onDragEnd={handleDragEnd}
                 onDrop={(e) => addNumber(e)}
                 />
                 <div className="boxes">
@@ -46,11 +52,12 @@ export default function numberDrag(){
                         <NumberBox 
                         number={num} 
                         key={num} 
-                        onDragStart={()=>handleDragStart(num)}
-                        onDragEnd={()=>handleDragEnd(num)}
+                        onDragStart={(e)=>handleDragStart(num)}
+                        onDragEnd={(e)=>handleDragEnd(num)}
                         />
                     )}
                 </div>
+                <button onClick={clear}>Clear</button>
             </div>
         </div>
     )
