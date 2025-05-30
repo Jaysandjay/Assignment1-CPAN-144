@@ -2,6 +2,7 @@ import React from "react";
 import Title from "@/app/components/Title";
 import NumberBox from "@/app/components/numberBox";
 import { useState } from "react";
+import ClearButton from "@/app/components/ClearButton";
 
 
 export default function numberDrag(){
@@ -30,16 +31,12 @@ export default function numberDrag(){
         e.preventDefault()
         setCurrentNumber(currentNumber + numToAdd)
     }
-
-    function clear(){
-        setCurrentNumber(0)
-    }
     
 
     return(
         <div>
             <Title title="Number Drag"/>
-            <p className="numberInstructions">Drag and drop the boxeds to add the value </p>
+            <p className="instructions">Drag and drop the boxeds to add the value </p>
             <div className="boxLayout">
                 <NumberBox 
                 number={currentNumber}
@@ -57,7 +54,7 @@ export default function numberDrag(){
                         />
                     )}
                 </div>
-                <button onClick={clear}>Clear</button>
+                <ClearButton variableToClear={setCurrentNumber}/>
             </div>
         </div>
     )

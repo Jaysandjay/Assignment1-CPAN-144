@@ -8,6 +8,7 @@ const Navigation = () => {
             <Link href="/about">About</Link>
             <Link href="/tasks">Tasks</Link>
             <Link href="/numberDrag">Number-Drag</Link>
+            <Link href="/hover">Hover</Link>
         </nav>
     )
 }
