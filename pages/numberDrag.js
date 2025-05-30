@@ -4,58 +4,55 @@ import NumberBox from "@/app/components/numberBox";
 import { useState } from "react";
 import ClearButton from "@/app/components/ClearButton";
 
+export default function numberDrag() {
+  const [numToAdd, setNumToAdd] = useState(0);
+  const [currentNumber, setCurrentNumber] = useState(0);
 
-export default function numberDrag(){
+  const numbers = [];
+  for (let i = 1; i < 10; i++) {
+    numbers.push(i);
+  }
 
-    const [numToAdd, setNumToAdd] = useState(0)
-    const [currentNumber, setCurrentNumber] = useState(0)
+  function handleDragStart(num) {
+    setNumToAdd(num);
+  }
 
-    const numbers = []
-    for(let i = 1; i < 10; i++){
-        numbers.push(i)
-    }
+  function handleDragEnd(num) {
+    setNumToAdd(0);
+  }
 
-    function handleDragStart(num){
-        setNumToAdd(num)
-    }
+  function handleDragOver(e) {
+    e.preventDefault();
+  }
 
-    function handleDragEnd(num){
-        setNumToAdd(0)
-    }
+  function addNumber(e) {
+    e.preventDefault();
+    setCurrentNumber(currentNumber + numToAdd);
+  }
 
-    function handleDragOver(e){
-        e.preventDefault()
-    }
-
-    function addNumber(e){
-        e.preventDefault()
-        setCurrentNumber(currentNumber + numToAdd)
-    }
-    
-
-    return(
-        <div>
-            <Title title="Number Drag"/>
-            <p className="instructions">Drag and drop the boxeds to add the value </p>
-            <div className="boxLayout">
-                <NumberBox 
-                number={currentNumber}
-                onDragOver={handleDragOver}
-                onDragEnd={handleDragEnd}
-                onDrop={(e) => addNumber(e)}
-                />
-                <div className="boxes">
-                    {numbers.map((num) =>
-                        <NumberBox 
-                        number={num} 
-                        key={num} 
-                        onDragStart={(e)=>handleDragStart(num)}
-                        onDragEnd={(e)=>handleDragEnd(num)}
-                        />
-                    )}
-                </div>
-                <ClearButton variableToClear={setCurrentNumber}/>
-            </div>
+  return (
+    <div>
+      <Title title="Number Drag" />
+      <p className="instructions">Drag and drop the boxeds to add the value </p>
+      <div className="boxLayout">
+        <NumberBox
+          number={currentNumber}
+          onDragOver={handleDragOver}
+          onDragEnd={handleDragEnd}
+          onDrop={(e) => addNumber(e)}
+        />
+        <div className="boxes">
+          {numbers.map((num) => (
+            <NumberBox
+              number={num}
+              key={num}
+              onDragStart={(e) => handleDragStart(num)}
+              onDragEnd={(e) => handleDragEnd(num)}
+            />
+          ))}
         </div>
-    )
+        <ClearButton variableToClear={setCurrentNumber} />
+      </div>
+    </div>
+  );
 }

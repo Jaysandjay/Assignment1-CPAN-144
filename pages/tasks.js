@@ -2,66 +2,67 @@ import Title from "@/app/components/Title";
 import React from "react";
 import { useState } from "react";
 
-export default function tasks (){
+export default function tasks() {
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState("");
+  const [isValid, setIsValid] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
-    const [tasks, setTasks] = useState([])
-    const [input, setInput] = useState("")
-    const [isValid, setIsValid] = useState(true)
-    const [submitted, setSubmitted] = useState(false)
+  function handleInput(task) {
+    setInput(task);
+    setSubmitted(false);
+  }
 
-
-    function handleInput(task){
-        setInput(task)
-        setSubmitted(false)
+  function addTask() {
+    if (input.trim() != "") {
+      setIsValid(true);
+      setTasks([...tasks, input]);
+      setInput("");
+      setSubmitted(true);
+    } else {
+      setIsValid(false);
     }
-    
+  }
 
-    function addTask(){
-        if(input.trim() != ""){
-            setIsValid(true)
-            setTasks([...tasks, input])
-            setInput("")
-            setSubmitted(true)
-        }else{
-            setIsValid(false)
-        }
-    }
+  function deleteTask(task) {
+    const updatedList = tasks.filter((t) => t !== task);
+    setTasks(updatedList);
+  }
 
-    function deleteTask(task){
-        const updatedList = tasks.filter((t) => t !== task)
-        setTasks(updatedList)
-    }
+  return (
+    <div>
+      <Title title="Task Tracker" />
 
-    return(
-        <div>
-            <Title title="Task Tracker"/>
-
-            <div className="taskLayout">
-                <div className="createTask">
-                    <h4>Create Task</h4>
-                    <input type="text" value={input} onChange={(e) => handleInput(e.target.value)}></input>
-                    <button onClick={addTask} >Create</button>
-                    <p>{isValid ?  "" : "Invalid, feild is empty"}</p>
-                    <p>{submitted ? "Task Created!" : ""}</p>
-                </div>
-
-                <div className="currentTasks">
-                    <h3>Current Tasks</h3>
-                    <div>
-                        <p>{tasks.length != 0 ? "" : "No current tasks"}</p>
-                        <ul className="taskList">
-                            {tasks.map((task) => 
-                            <li>
-                                {task}
-                                <button className="delete" onClick={() => deleteTask(task)}>Delete</button>
-                                
-                            </li>
-                            
-                            )}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      <div className="taskLayout">
+        <div className="createTask">
+          <h4>Create Task</h4>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => handleInput(e.target.value)}
+          ></input>
+          <button onClick={addTask}>Create</button>
+          <p>{isValid ? "" : "Invalid, feild is empty"}</p>
+          <p>{submitted ? "Task Created!" : ""}</p>
         </div>
-    )
+
+        <div className="currentTasks">
+          <h3>Current Tasks</h3>
+          <div>
+            <p>{tasks.length != 0 ? "" : "No current tasks"}</p>
+            <ul className="taskList">
+              {tasks.map((task) => (
+                <li>
+                  {task}
+                  <button className="delete" onClick={() => deleteTask(task)}>
+                    Delete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

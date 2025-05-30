@@ -1,12 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function ClearButton({variableToClear}){
+export default function ClearButton({ variableToClear }) {
+  function clear() {
+    variableToClear(0);
+  }
 
-    function clear(){
-        variableToClear(0)
-    }
-
-    return(
-        <button onClick={clear}>Clear</button>
-    )
+  return <button onClick={clear}>Clear</button>;
 }

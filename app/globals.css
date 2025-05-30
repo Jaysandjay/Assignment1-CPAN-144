@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -11,7 +12,7 @@ body {
   color: white;
 }
 
-nav{
+nav {
   box-sizing: border-box;
   margin: 10px;
   border: solid 3px gray;
@@ -20,7 +21,7 @@ nav{
   align-items: center;
 }
 
-nav a{
+nav a {
   margin: 15px;
   cursor: pointer;
   color: white;
@@ -28,23 +29,23 @@ nav a{
   font-size: 25px;
 }
 
-nav a:hover{
+nav a:hover {
   color: rgb(110, 108, 108);
 }
 
-.title{
+.title {
   text-align: center;
 }
 
-.about{
+.about {
   text-align: center;
 }
 
-.activePage{
+.activePage {
   color: blue;
 }
 
-.homeMessage{
+.homeMessage {
   box-sizing: border-box;
   width: 100%;
   font-size: 25px;
@@ -54,13 +55,13 @@ nav a:hover{
   margin-top: 5px;
 }
 
-h2{
+h2 {
   display: block;
   font-size: 40px !important;
   margin-top: 18px;
 }
 
-button{
+button {
   background-color: grey;
   color: white;
   width: 100px;
@@ -70,11 +71,11 @@ button{
   cursor: pointer;
 }
 
-button:hover{
+button:hover {
   background-color: rgb(100, 99, 99);
 }
 
-.homeMessage ol{
+.homeMessage ol {
   margin-top: 10px;
   position: fixed;
   left: 50%;
@@ -82,7 +83,7 @@ button:hover{
   transform: translate(-50%);
 }
 
-.createTask{
+.createTask {
   font-size: 20px;
   box-sizing: border-box;
   border: solid 2px gray;
@@ -95,7 +96,7 @@ button:hover{
   height: 60vh;
 }
 
-.currentTasks{
+.currentTasks {
   box-sizing: border-box;
   border: solid 2px gray;
   height: 60vh;
@@ -105,14 +106,14 @@ button:hover{
   overflow-y: scroll;
 }
 
-.createTask input{
+.createTask input {
   width: 80%;
   height: 25px;
   margin-bottom: 20px;
   padding: 5px;
 }
 
-.delete{
+.delete {
   color: rgb(124, 48, 48);
   height: 20px;
   width: 50px;
@@ -120,18 +121,17 @@ button:hover{
   margin-left: 15px;
 }
 
-.taskLayout{
+.taskLayout {
   display: flex;
   justify-content: space-around;
 }
 
-.currentTasks h3{
+.currentTasks h3 {
   text-align: center;
   margin-top: 5px;
-
 }
 
-.taskList li{
+.taskList li {
   font-size: 20px;
   margin: 5px;
   margin-left: 10px;
@@ -139,7 +139,7 @@ button:hover{
 
 /* Number Drag */
 
-.numberBox{
+.numberBox {
   box-sizing: border-box;
   width: 100px;
   height: 100px;
@@ -151,12 +151,12 @@ button:hover{
   margin: 20px;
 }
 
-.boxes{
+.boxes {
   display: flex;
   justify-content: space-around !important;
 }
 
-.boxLayout{
+.boxLayout {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,12 +164,12 @@ button:hover{
   height: 400px;
 }
 
-.instructions{
+.instructions {
   text-align: center;
   font-size: 25px;
 }
 
-.hoverOval{
+.hoverOval {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,13 +186,13 @@ button:hover{
   margin-bottom: 15px;
 }
 
-.ovalContainers h3{
+.ovalContainers h3 {
   color: white;
   height: 20px;
   text-align: center;
 }
 
-.ovalContainers{
+.ovalContainers {
   display: flex;
   justify-content: space-around;
   color: black;

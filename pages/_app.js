@@ -1,12 +1,11 @@
-
-import '@/app/globals.css'
-import Navigation from '@/app/components/Navigation'
+import "@/app/globals.css";
+import Navigation from "@/app/components/Navigation";
 
 export default function MyApp({ Component, pageProps }) {
-  return(
+  return (
     <>
-        <Navigation></Navigation>
-        <Component {...pageProps} />
-    
+      <Navigation></Navigation>
+      <Component {...pageProps} />
     </>
-)}
+  );
+}
